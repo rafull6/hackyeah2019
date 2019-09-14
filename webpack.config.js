@@ -14,7 +14,7 @@ module.exports = {
     contentBase: path.join(__dirname, "www"),
     hot: true,
     historyApiFallback: true,
-    publicPath: "/js/",
+    publicPath: "/assets/",
     open: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
@@ -38,7 +38,7 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "img",
-              publicPath: "/app/assets/img/"
+              publicPath: "/assets/img/"
             }
           }
         ]
