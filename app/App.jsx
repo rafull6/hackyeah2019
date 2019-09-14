@@ -37,6 +37,8 @@ import Header from "./components/Header";
 import SplashView from "./views/SplashView";
 import HomeView from "./views/HomeView";
 import RescueView from "./views/RescueView";
+import RescueTypeView from "./views/RescueTypeView";
+import RescuePersonView from "./views/RescuePersonView";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -62,6 +64,8 @@ const App = () => (
         <Route path="/" exact component={SplashView} />
         <Route path="/home" exact component={HomeView} />
         <Route path="/rescue" exact component={RescueView} />
+        <Route path="/rescue-type" exact component={RescueTypeView} />
+        <Route path="/rescue-person" exact component={RescuePersonView} />
       </Content>
     </Router>
   </>

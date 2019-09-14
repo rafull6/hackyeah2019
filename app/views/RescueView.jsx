@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 import List from "../components/List";
 
-import CrashImg from "../assets/types/crash.svg";
-import HeartImg from "../assets/types/heart.svg";
-import KneeImg from "../assets/types/knee.svg";
-import TrainImg from "../assets/types/train.svg";
+import CrashImg from "../assets/types/crash.svgin";
+import HeartImg from "../assets/types/heart.svgin";
+import KneeImg from "../assets/types/knee.svgin";
+import TrainImg from "../assets/types/train.svgin";
 
 const Section = styled.div`
   h2 {
@@ -51,7 +51,7 @@ const RescueView = () => (
   <>
     <Section>
       <h2>Rodzaj wypadku</h2>
-      <List items={mocks} />
+      <List items={mocks} nextView="/rescue-type" />
     </Section>
   </>
 );

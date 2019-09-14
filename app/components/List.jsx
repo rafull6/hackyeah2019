@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import { withRouter } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.ul`
   list-style: none;
@@ -13,6 +14,9 @@ const ItemIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  svg {
+    width: 40px;
+  }
 `;
 
 const ItemContent = styled.div`
@@ -29,6 +33,15 @@ const ItemContent = styled.div`
     line-height: 18px;
     margin: 0;
   }
+
+  ${props =>
+    props.center &&
+    css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    `}
 `;
 
 const Item = styled.li`
@@ -36,11 +49,13 @@ const Item = styled.li`
   color: var(--primaryColor);
   border-radius: 5px;
   margin-bottom: 12px;
+  min-height: 91px;
   display: flex;
   overflow: hidden;
   cursor: pointer;
   &:hover {
     background: var(--primaryColor);
+    color: #fff;
     box-shadow: 0px 3px 30px #d81e0573;
     ${ItemIcon} {
       background: var(--primaryColor);
@@ -56,16 +71,14 @@ const Item = styled.li`
   }
 `;
 
-const List = ({ items }) => (
+const List = ({ history, items, nextView, center }) => (
   <Wrapper>
     {items.map(item => (
-      <Item>
+      <Item onClick={() => history.push(nextView)}>
         {item.icon && (
-          <ItemIcon>
-            <img src={item.icon} />
-          </ItemIcon>
+          <ItemIcon dangerouslySetInnerHTML={{ __html: item.icon }}></ItemIcon>
         )}
-        <ItemContent>
+        <ItemContent center={center}>
           <h3>{item.name}</h3>
           <p>{item.content}</p>
         </ItemContent>
@@ -74,4 +87,4 @@ const List = ({ items }) => (
   </Wrapper>
 );
 
-export default List;
+export default withRouter(List);

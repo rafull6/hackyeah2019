@@ -42,6 +42,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.svgin$/,
+        loader: "svg-inline-loader"
       }
     ]
   },
