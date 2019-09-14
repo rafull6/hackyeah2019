@@ -20,6 +20,7 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "cordova-android": "^8.0.0",
+    "cordova-plugin-speechrecognition": "^1.2.0",
     "cordova-plugin-tts": "^0.2.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -34,7 +35,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-tts": {}
+      "cordova-plugin-tts": {},
+      "cordova-plugin-speechrecognition": {}
     },
     "platforms": [
       "android"

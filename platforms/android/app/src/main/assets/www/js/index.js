@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "111fe2d3223f33e25cc5";
+/******/ 	var hotCurrentHash = "955bc97ce7562d9daf61";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -804,7 +804,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst App = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Heoadadasdsadooo\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./app/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_VoiceRecognition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/VoiceRecognition */ \"./app/utils/VoiceRecognition.js\");\n\n\n\nconst App = () => {\n  const [aaa, setAaa] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])('Heoadadasdsadooo');\n\n  const pronounce = sayArray => {\n    console.log(\"TCL: App -> sayArray\", sayArray);\n\n    if (sayArray) {\n      console.log(\"TCL: App -> sayArray\", sayArray);\n      sayArray.forEach(element => {\n        TTS.speak({\n          text: element,\n          locale: 'pl-PL',\n          rate: 0.75\n        });\n      });\n    }\n  };\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n    document.addEventListener('deviceready', function () {\n      Object(_utils_VoiceRecognition__WEBPACK_IMPORTED_MODULE_1__[\"chuj\"])().then(res => {\n        console.log(\"TCL: App -> res\", res);\n        pronounce(res);\n      });\n    }, false);\n  }, []);\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    id: \"elo\"\n  }, aaa);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./app/App.jsx?");
 
 /***/ }),
 
@@ -817,6 +817,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./app/App.jsx\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById(\"root\"));\n\n//# sourceURL=webpack:///./app/index.jsx?");
+
+/***/ }),
+
+/***/ "./app/utils/VoiceRecognition.js":
+/*!***************************************!*\
+  !*** ./app/utils/VoiceRecognition.js ***!
+  \***************************************/
+/*! exports provided: chuj */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"chuj\", function() { return chuj; });\nconst hasPermission = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.hasPermission(function (isGranted) {\n      resolve(isGranted);\n    }, function (err) {\n      reject(err);\n    });\n  });\n};\n\nconst requestPermission = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.requestPermission(function () {\n      resolve();\n    }, function (err) {\n      reject();\n    });\n  });\n};\n\nconst startRecognition = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.startListening(function (result) {\n      resolve(result);\n    }, function (err) {\n      reject(err);\n    }, {\n      language: \"pl-PL\",\n      showPopup: true\n    });\n  });\n};\n\nconst getSupportedLanguages = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.getSupportedLanguages(function (result) {\n      resolve(result);\n    }, function (err) {\n      reject(err);\n    });\n  });\n};\n\nconst isRecognitionAvailable = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.isRecognitionAvailable(function (available) {\n      resolve(available);\n    }, function (err) {\n      reject(err);\n    });\n  });\n};\n\nconst stopListening = () => {\n  return new Promise(function (resolve, reject) {\n    window.plugins.speechRecognition.stopListening(function () {\n      resolve();\n    }, function (err) {\n      reject(err);\n    });\n  });\n};\n\nconst chuj = () => {\n  console.log(\"TCL: chuj -> chuj\");\n  return isRecognitionAvailable().then(function (available) {\n    if (available) {\n      return hasPermission();\n    }\n  }).then(function (hasPermission) {\n    if (!hasPermission) {\n      return requestPermission().then(function () {\n        return startRecognitionWrapper();\n      }).catch(function (err) {\n        console.error(\"Cannot get permission\", err);\n      });\n    } else {\n      return startRecognitionWrapper();\n    }\n  }).catch(function (err) {\n    console.error(err);\n  });\n};\n\nfunction startRecognitionWrapper() {\n  return startRecognition().then(function (data) {\n    console.log(\"Results\", data);\n    return data;\n  }).catch(function (err) {\n    console.error(err);\n  });\n}\n\n//# sourceURL=webpack:///./app/utils/VoiceRecognition.js?");
 
 /***/ }),
 
