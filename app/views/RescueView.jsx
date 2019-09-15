@@ -4,6 +4,7 @@ import styled from "styled-components";
 import List from "../components/List";
 
 import CrashImg from "../assets/types/crash.svgin";
+import SensesImg from "../assets/types/senses.svgin";
 import HeartImg from "../assets/types/heart.svgin";
 import KneeImg from "../assets/types/knee.svgin";
 import TrainImg from "../assets/types/train.svgin";
@@ -26,7 +27,7 @@ const mocks = [
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    icon: CrashImg,
+    icon: SensesImg,
     name: "Utrata przytomności",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
