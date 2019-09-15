@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9642b90e4b437013eb2c";
+/******/ 	var hotCurrentHash = "48a719b28afeb763d5c8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -808,6 +808,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./app/assets/alarm.mp3":
+/*!******************************!*\
+  !*** ./app/assets/alarm.mp3 ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"assets/img/alarm.mp3\";\n\n//# sourceURL=webpack:///./app/assets/alarm.mp3?");
+
+/***/ }),
+
 /***/ "./app/assets/kubica.png":
 /*!*******************************!*\
   !*** ./app/assets/kubica.png ***!
@@ -1109,7 +1120,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\n\nconst myAnimantion = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"keyframes\"]`\n0% {\n  background: black;\n}\n50% {\n  background: white;\n}\n100% {\n  background: black;\n}\n`;\nconst AlertWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"default\"].div`\n  display: block;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  z-index: 1;\n  position: absolute;\n  top: 0;\n  left: 0;\n  background: black;\n\n  animation: ${myAnimantion} 0.5s linear infinite;\n\n`;\n\nconst Alert = () => {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AlertWrapper, null);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Alert);\n\n//# sourceURL=webpack:///./app/views/Alert.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _assets_alarm_mp3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/alarm.mp3 */ \"./app/assets/alarm.mp3\");\n/* harmony import */ var _assets_alarm_mp3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_alarm_mp3__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst myAnimantion = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"keyframes\"]`\n0% {\n  background: black;\n}\n50% {\n  background: white;\n}\n100% {\n  background: black;\n}\n`;\nconst AlertWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"default\"].div`\n  display: block;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  z-index: 1;\n  position: absolute;\n  top: 0;\n  left: 0;\n  background: black;\n\n  animation: ${myAnimantion} 0.5s linear infinite;\n\n`;\n\nconst Alert = () => {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AlertWrapper, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"audio\", {\n    src: _assets_alarm_mp3__WEBPACK_IMPORTED_MODULE_2___default.a,\n    controls: true,\n    autoPlay: true,\n    loop: true\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Alert);\n\n//# sourceURL=webpack:///./app/views/Alert.jsx?");
 
 /***/ }),
 

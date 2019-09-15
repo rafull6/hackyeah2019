@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
+import AlarmSound from '../assets/alarm.mp3';
 
 const myAnimantion = keyframes`
 0% {
@@ -29,8 +30,10 @@ const AlertWrapper = styled.div`
 `;
 
 const Alert = () => {
-  return (
+  return (<>
     <AlertWrapper></AlertWrapper>
+    <audio src={AlarmSound} controls autoPlay loop />
+  </>
   );
 };
 
