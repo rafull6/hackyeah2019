@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
+import List from "../components/List";
+
 import KubicaImg from "../assets/kubica.png";
+import QuizImg from "../assets/quiz.png";
 
 const Body = styled.div`
   flex: 1 1 auto;
@@ -14,7 +17,7 @@ const Body = styled.div`
     margin: 0;
   }
 
-  h3 {
+  h4 {
     color: #424242;
     font-size: 20px;
     font-weight: 400;
@@ -23,7 +26,7 @@ const Body = styled.div`
     margin: 0;
   }
 
-  h4 {
+  h5 {
     color: #424242;
     font-size: 18px;
     font-weight: 400;
@@ -32,13 +35,18 @@ const Body = styled.div`
     margin: 0 0 16px;
   }
 
-  img {
+  img.quiz {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  img.kubica {
     width: 225px;
     display: block;
     margin: 10px auto 30px;
   }
 
-  p {
+  > p {
     color: #707070;
     font-size: 14px;
     line-height: 24px;
@@ -115,23 +123,85 @@ const LevelListItem = styled.li`
     `}
 `;
 
+const Question = styled.span`
+  color: #707070;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  display: block;
+  margin: 15px 0;
+`;
+
+const CurrentQuestion = styled.span`
+  color: #b0afb5;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  display: block;
+  strong {
+    color: var(--primaryColor);
+    font-size: 32px;
+  }
+`;
+
+const mocks = [
+  {
+    letter: "A",
+    name: "Wypadek samochodowy",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    letter: "B",
+    name: "Wypadek samochodowy",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    letter: "C",
+    name: "Wypadek samochodowy",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  }
+];
+
 const QuizView = ({ history }) => {
   const [step, setStep] = useState(0);
   const [level, setLevel] = useState(null);
+  const [option, setOption] = useState(null);
 
   function nextStep() {
     setStep(step + 1);
+  }
+
+  function backStep() {
+    setStep(step - 1);
   }
 
   if (step === 1) {
     return (
       <>
         <Body>
+          <h4>Pytanie</h4>
+          <CurrentQuestion>
+            <strong>1</strong>/10
+          </CurrentQuestion>
+          <img src={QuizImg} className="quiz" />
+          <Question>Co zrobić w przedstawionej sytuacji?</Question>
+          <List items={mocks} option={option} callback={id => setOption(id)} />
+        </Body>
+        <Footer>
+          <SecondaryButton onClick={backStep}>Wróć</SecondaryButton>
+          <PrimaryButton onClick={nextStep}>Przejdź dalej</PrimaryButton>
+        </Footer>
+      </>
+    );
+  } else if (step === 2) {
+    return (
+      <>
+        <Body>
           <h2>Brawo!</h2>
-          <h3>
+          <h4>
             Odpowiedziałeś na <strong>8 pytań!</strong>
-          </h3>
-          <img src={KubicaImg} />
+          </h4>
+          <img src={KubicaImg} className="kubica" />
           <p>
             Przejdź trudny Quiz z wynikiem 10/10 by dostać się na spotkanie z{" "}
             <strong>Robertem Kubicą</strong>
@@ -149,7 +219,7 @@ const QuizView = ({ history }) => {
     return (
       <>
         <Body>
-          <h3>Witaj w interaktywnym</h3>
+          <h4>Witaj w interaktywnym</h4>
           <h2>Quizie!</h2>
           <br />
           <p>
@@ -159,7 +229,7 @@ const QuizView = ({ history }) => {
           </p>
           <br />
           <br />
-          <h4>Wybierz poziom trudności:</h4>
+          <h5>Wybierz poziom trudności:</h5>
           <LevelList>
             <LevelListItem active={level === 1} onClick={() => setLevel(1)}>
               Łatwy
