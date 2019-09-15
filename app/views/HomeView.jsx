@@ -65,7 +65,7 @@ const HomeView = ({ history }) => (
         <img src={microphone} />
         <span>Wyszukaj <br />głosem</span>
       </HomeButton>
-      <HomeButton type="4" onClick={() => history.push("/rescue")}>
+      <HomeButton type="4" onClick={() => history.push("/map")}>
         <img src={location} />
         <span>Znajdź najbliższy <br />punkt NFZ</span>
       </HomeButton>

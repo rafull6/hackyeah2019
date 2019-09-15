@@ -1023,6 +1023,18 @@ cordova-common@^3.1.0:
     underscore "^1.8.3"
     which "^1.3.0"
 
+cordova-plugin-googlemaps@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-googlemaps/-/cordova-plugin-googlemaps-2.6.2.tgz#8c73f1d3ab2f815b36e2239149c3731541e0ffe2"
+  integrity sha512-Zb5y+3PoEPnH7oorp6mvATnxESqedYHFhZodJdcGmUFC1vaRS5h46HOKTOT2fE8XQJ1FnVub03nJiTqxrGsqYw==
+  dependencies:
+    cordova-common "^3.1.0"
+
+cordova-plugin-speechrecognition@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-speechrecognition/-/cordova-plugin-speechrecognition-1.2.0.tgz#005f10c896fd9293d8587fe5522a2b642dea970a"
+  integrity sha1-AF8QyJb9kpPYWH/lUiorZC3qlwo=
+
 cordova-plugin-tts@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/cordova-plugin-tts/-/cordova-plugin-tts-0.2.3.tgz#c5743f6c6f251e8cb4bc45dd33d41a9a22997287"

@@ -20,6 +20,7 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "cordova-android": "^8.0.0",
+    "cordova-plugin-googlemaps": "^2.6.2",
     "cordova-plugin-speechrecognition": "^1.2.0",
     "cordova-plugin-tts": "^0.2.3",
     "file-loader": "^4.2.0",
@@ -39,7 +40,10 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-tts": {},
-      "cordova-plugin-speechrecognition": {}
+      "cordova-plugin-speechrecognition": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyDVv2Vjn8C2QoGJhmfdB4K09LFZuIdauCo"
+      }
     },
     "platforms": [
       "android"

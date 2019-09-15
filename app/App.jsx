@@ -39,6 +39,7 @@ import HomeView from "./views/HomeView";
 import RescueView from "./views/RescueView";
 import RescueTypeView from "./views/RescueTypeView";
 import RescuePersonView from "./views/RescuePersonView";
+import MapView from "./views/MapView";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -66,6 +67,7 @@ const App = () => (
         <Route path="/rescue" exact component={RescueView} />
         <Route path="/rescue-type" exact component={RescueTypeView} />
         <Route path="/rescue-person" exact component={RescuePersonView} />
+        <Route path="/map" exact component={MapView} />
       </Content>
     </Router>
   </>
