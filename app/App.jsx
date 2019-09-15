@@ -10,6 +10,8 @@ import RescueTypeView from "./views/RescueTypeView";
 import RescuePersonView from "./views/RescuePersonView";
 import MapView from "./views/MapView";
 import RescueStepsView from "./views/RescueStepsView";
+import SurvivalView from "./views/SurvivalView";
+import SurvivalDetailsView from "./views/SurvivalDetailsView";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -55,6 +57,8 @@ const App = () => (
         <Route path="/rescue-person" exact component={RescuePersonView} />
         <Route path="/rescue-steps/:key" exact component={RescueStepsView} />
         <Route path="/rescue-steps" exact component={RescueStepsView} />
+        <Route path="/survival" exact component={SurvivalView} />
+        <Route path="/survival-details" exact component={SurvivalDetailsView} />
       </Content>
     </Router>
   </>
