@@ -38,9 +38,7 @@ const HomeView = ({ history }) => {
     };
 
     for (let key in filters) {
-      console.log(filters[key]);
-
-      if (filters[key] === res[0]) {
+      if (res[0].includes(filters[key])) {
         history.push(`/rescue-steps/${key}`);
       }
     }
@@ -50,7 +48,6 @@ const HomeView = ({ history }) => {
   const listen = () => {
     document.addEventListener('deviceready', () => {
       initRecognition().then(res => {
-        console.log("TCL: HomeView -> res", res)
         openHelp(res)
       })
 

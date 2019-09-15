@@ -1,21 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { initRecognition } from './utils/VoiceRecognition';
-
-// const App = () => {
-
-//   const [aaa, setAaa] = useState('Heoadadasdsadooo');
-
-//   useEffect(() => {
-//     document.addEventListener('deviceready', () => {
-//       initRecognition().then(res => {
-//         pronounce(res);
-//       })
-
-//     }, false);
-//   }, [])
-
-//   return <div id="app">{aaa}</div>
-// };
 import React from "react";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";

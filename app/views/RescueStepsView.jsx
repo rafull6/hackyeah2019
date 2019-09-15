@@ -188,7 +188,6 @@ const pronounce = element => {
 };
 
 const RescueStepsView = ({ match }) => {
-  console.log("TCL: RescueStepsView -> history", history)
   const [step, setStep] = useState(0);
   const key = match.params.key ? match.params.key : 'case1';
 
