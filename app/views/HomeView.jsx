@@ -86,7 +86,7 @@ const HomeView = ({ history }) => {
           <br />
           Kit
         </HomeButton>
-        <HomeButton>Quiz</HomeButton>
+        <HomeButton onClick={() => history.push("/quiz")}>Quiz</HomeButton>
       </Section>
 
       <Section type="footer">
