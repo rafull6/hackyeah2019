@@ -203,24 +203,19 @@ const RescueStepsView = ({ match }) => {
   }
 
   const readText = () => {
-<<<<<<< HEAD
     pronounce(mocks[key][step].content);
   }
-=======
-    pronounce(mocks[step].content);
-  };
->>>>>>> 12073c3e48080613896d82f777dc56262c04e32b
 
   return (
     <>
       <Section>
         <Header>
           <h2>Resustytacja - Dorosły</h2>
-          <span><strong>{step + 1}</strong>/ {mocks.length}</span>
+          <span><strong>{step + 1}</strong>/ {mocks[key].length}</span>
         </Header>
         <Step>
-          <img src={mocks[key][step].image} onClick={nextStep} />
-          <p>{mocks[key][step].content}</p>
+          {mocks[key][step] && <img src={mocks[key][step].image} onClick={nextStep} />}
+          {mocks[key][step] && <p>{mocks[key][step].content}</p>}
         </Step>
       </Section>
       <Footer>
