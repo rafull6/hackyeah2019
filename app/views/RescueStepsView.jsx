@@ -174,45 +174,30 @@ const mocks = {
   case1: [
     {
       image: Step1Img,
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      content:
+        "Resuscytację osoby dorosłej rozpoczynamy od 30 uciśnięć klatki piersiowej"
     },
     {
       image: Step2Img,
-      content: "Lorem ipsum."
+      content: "Udrożnij drogi oddechowe i wykonaj dwa oddechy ratownicze"
     },
     {
-      image: "",
-      content: "consectetur adipiscing elit."
+      image: Step1Img,
+      content: "Powtarzamy 30 uciśnięć klatki piersiowej"
     },
     {
-      image: "",
-      content: "Lorem"
+      image: Step2Img,
+      content: "Udrażnij drogi oddechowe przez 15 sekund"
     },
     {
-      image: "",
-      content: "adipiscing elit."
+      image: Step1Img,
+      content: "Sprawdź czy poszkodowany oddycha"
     }
   ],
   case2: [
     {
-      image: "",
-      content: "222 Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      image: "",
-      content: "Lorem ipsum dolor sit amet"
-    },
-    {
-      image: "",
-      content: "consectetur adipiscing elit."
-    },
-    {
-      image: "",
-      content: "Lorem"
-    },
-    {
-      image: "",
-      content: "adipiscing elit."
+      image: Step2Img,
+      content: "Sprawdź czy poszkodowany oddycha"
     }
   ]
 };
@@ -227,7 +212,7 @@ const pronounce = element => {
 
 const RescueStepsView = ({ match }) => {
   const [step, setStep] = useState(0);
-  const key = match.params.key ? match.params.key : "case1";
+  const key = match.params.key ? match.params.key : "case2";
 
   useEffect(() => {
     readText();
@@ -250,7 +235,7 @@ const RescueStepsView = ({ match }) => {
     setStep(0);
   };
 
-  if (step === mocks[key].length - 1) {
+  if (step === mocks[key].length) {
     return (
       <>
         <End>
