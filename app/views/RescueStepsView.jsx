@@ -28,7 +28,7 @@ const Header = styled.div`
   justify-content: space-between;
   margin: 0 0 13px;
   span {
-    color: #B0AFB5;
+    color: #b0afb5;
     font-size: 18px;
     line-height: 23px;
     font-style: italic;
@@ -94,6 +94,43 @@ const Dot = styled.li`
     `}
 `;
 
+const End = styled.div`
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h2 {
+    color: var(--primaryColor);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 41px;
+    margin: 0 0 10px;
+  }
+
+  span {
+    color: #424242;
+    font-size: 20px;
+    line-height: 26px;
+  }
+`;
+
+const BackButton = styled.button`
+  flex: 0 0 auto;
+  background: #f4f3f4;
+  color: #424242;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  height: 63px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  cursor: pointer;
+`;
+
 const RepeatButton = styled.button`
   flex: 0 0 auto;
   background: #f4f3f4;
@@ -134,26 +171,28 @@ const NextButton = styled.button`
 `;
 
 const mocks = {
-  case1: [{
-    image: Step1Img,
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    image: Step2Img,
-    content: "Lorem ipsum."
-  },
-  {
-    image: "",
-    content: "consectetur adipiscing elit."
-  },
-  {
-    image: "",
-    content: "Lorem"
-  },
-  {
-    image: "",
-    content: "adipiscing elit."
-  }],
+  case1: [
+    {
+      image: Step1Img,
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      image: Step2Img,
+      content: "Lorem ipsum."
+    },
+    {
+      image: "",
+      content: "consectetur adipiscing elit."
+    },
+    {
+      image: "",
+      content: "Lorem"
+    },
+    {
+      image: "",
+      content: "adipiscing elit."
+    }
+  ],
   case2: [
     {
       image: "",
@@ -179,30 +218,53 @@ const mocks = {
 };
 
 const pronounce = element => {
-  TTS
-    .speak({
-      text: element,
-      locale: 'pl-PL',
-      rate: 1
-    });
+  TTS.speak({
+    text: element,
+    locale: "pl-PL",
+    rate: 1
+  });
 };
 
 const RescueStepsView = ({ match }) => {
   const [step, setStep] = useState(0);
-  const key = match.params.key ? match.params.key : 'case1';
+  const key = match.params.key ? match.params.key : "case1";
 
   useEffect(() => {
     readText();
   }, []);
 
   function nextStep() {
-    if (step === mocks[key].length - 1) return;
+    if (step === mocks[key].length - 1) {
+      setStep(step + 1);
+      return;
+    }
     setStep(step + 1);
     pronounce(mocks[key][step + 1].content);
   }
 
   const readText = () => {
     pronounce(mocks[key][step].content);
+  };
+
+  const resetStep = () => {
+    setStep(0);
+  };
+
+  if (step === mocks[key].length - 1) {
+    return (
+      <>
+        <End>
+          <div>
+            <h2>Zakończyłeś procedurę pomocy.</h2>
+            <span>Poczekaj na karetkę pogotowia</span>
+          </div>
+        </End>
+        <Footer>
+          <BackButton onClick={resetStep}>Wróć na początek</BackButton>
+          <NextButton>Znajdź najbliższy punkt NFZ</NextButton>
+        </Footer>
+      </>
+    );
   }
 
   return (
@@ -210,10 +272,14 @@ const RescueStepsView = ({ match }) => {
       <Section>
         <Header>
           <h2>Resustytacja - Dorosły</h2>
-          <span><strong>{step + 1}</strong>/ {mocks[key].length}</span>
+          <span>
+            <strong>{step + 1}</strong>/ {mocks[key].length}
+          </span>
         </Header>
         <Step>
-          {mocks[key][step] && <img src={mocks[key][step].image} onClick={nextStep} />}
+          {mocks[key][step] && (
+            <img src={mocks[key][step].image} onClick={nextStep} />
+          )}
           {mocks[key][step] && <p>{mocks[key][step].content}</p>}
         </Step>
       </Section>
