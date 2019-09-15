@@ -99,8 +99,8 @@ const NextButton = styled.button`
   cursor: pointer;
 `;
 
-const mocks = [
-  {
+const mocks = {
+  case1: [{
     image: "",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
@@ -119,8 +119,30 @@ const mocks = [
   {
     image: "",
     content: "adipiscing elit."
-  }
-];
+  }],
+  case2: [
+    {
+      image: "",
+      content: "222 Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      image: "",
+      content: "Lorem ipsum dolor sit amet"
+    },
+    {
+      image: "",
+      content: "consectetur adipiscing elit."
+    },
+    {
+      image: "",
+      content: "Lorem"
+    },
+    {
+      image: "",
+      content: "adipiscing elit."
+    }
+  ]
+};
 
 const pronounce = element => {
   TTS
@@ -131,8 +153,10 @@ const pronounce = element => {
     });
 }
 
-const RescueStepsView = () => {
+const RescueStepsView = ({ match }) => {
+  console.log("TCL: RescueStepsView -> history", history)
   const [step, setStep] = useState(0);
+  const key = match.params.key ? match.params.key : 'case1';
 
   useEffect(() => {
     readText();
@@ -141,11 +165,11 @@ const RescueStepsView = () => {
   function nextStep() {
     if (step === mocks.length - 1) return;
     setStep(step + 1);
-    pronounce(mocks[step + 1].content);
+    pronounce(mocks[key][step + 1].content);
   }
 
   const readText = () => {
-    pronounce(mocks[step].content);
+    pronounce(mocks[key][step].content);
   }
 
   return (
@@ -153,13 +177,13 @@ const RescueStepsView = () => {
       <Section>
         <h2>Resustytacja - Dorosły</h2>
         <Step>
-          <img src={mocks[step].image} onClick={nextStep} />
-          <p>{mocks[step].content}</p>
+          <img src={mocks[key][step].image} onClick={nextStep} />
+          <p>{mocks[key][step].content}</p>
         </Step>
       </Section>
       <Footer>
         <Stepper>
-          {mocks.map((item, id) => (
+          {mocks[key].map((item, id) => (
             <Dot active={id === step} />
           ))}
         </Stepper>

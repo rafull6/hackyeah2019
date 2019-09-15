@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import HomeButton from "../components/HomeButton";
 import microphone from '../assets/microphone.svg';
 import location from '../assets/location.svg';
+import { initRecognition } from '../utils/VoiceRecognition';
 
 const Section = styled.div`
   display: grid;
@@ -28,8 +29,35 @@ const Section = styled.div`
   `};
 `;
 
-const HomeView = ({ history }) => (
-  <>
+const HomeView = ({ history }) => {
+
+  const openHelp = res => {
+    const filters = {
+      case1: 'zawał',
+      case2: 'wypadek'
+    };
+
+    for (let key in filters) {
+      console.log(filters[key]);
+
+      if (filters[key] === res[0]) {
+        history.push(`/rescue-steps/${key}`);
+      }
+    }
+
+  }
+
+  const listen = () => {
+    document.addEventListener('deviceready', () => {
+      initRecognition().then(res => {
+        console.log("TCL: HomeView -> res", res)
+        openHelp(res)
+      })
+
+    }, false);
+  }
+
+  return (<>
     <Section>
       <HomeButton type="1" onClick={() => history.push("/rescue")}>
         Ratuj Życie
@@ -61,7 +89,7 @@ const HomeView = ({ history }) => (
     </Section>
 
     <Section type="footer">
-      <HomeButton type="3" onClick={() => history.push("/rescue")}>
+      <HomeButton type="3" onClick={listen}>
         <img src={microphone} />
         <span>Wyszukaj <br />głosem</span>
       </HomeButton>
@@ -71,7 +99,7 @@ const HomeView = ({ history }) => (
       </HomeButton>
     </Section>
 
-  </>
-);
+  </>)
+};
 
 export default HomeView;

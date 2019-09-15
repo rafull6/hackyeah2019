@@ -5,19 +5,6 @@
 
 //   const [aaa, setAaa] = useState('Heoadadasdsadooo');
 
-//   const pronounce = sayArray => {
-//     if (sayArray) {
-//       sayArray.forEach(element => {
-//         TTS
-//           .speak({
-//             text: element,
-//             locale: 'pl-PL',
-//             rate: 0.75
-//           });
-//       });
-//     }
-//   }
-
 //   useEffect(() => {
 //     document.addEventListener('deviceready', () => {
 //       initRecognition().then(res => {
@@ -84,6 +71,7 @@ const App = () => (
         <Route path="/rescue" exact component={RescueView} />
         <Route path="/rescue-type" exact component={RescueTypeView} />
         <Route path="/rescue-person" exact component={RescuePersonView} />
+        <Route path="/rescue-steps/:key" exact component={RescueStepsView} />
         <Route path="/rescue-steps" exact component={RescueStepsView} />
       </Content>
     </Router>
