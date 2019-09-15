@@ -95,7 +95,7 @@ const HomeView = ({ history }) => {
 
       <Section>
         <h2>Lokalny alarm</h2>
-        <HomeButton onClick={() => history.push("/survival")}>
+        <HomeButton onClick={() => history.push("/alert")}>
           Aktywuj lokalny alarm
         </HomeButton>
       </Section>

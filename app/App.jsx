@@ -13,6 +13,7 @@ import RescueStepsView from "./views/RescueStepsView";
 import SurvivalView from "./views/SurvivalView";
 import SurvivalDetailsView from "./views/SurvivalDetailsView";
 import QuizView from "./views/QuizView";
+import Alert from "./views/Alert";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -61,6 +62,8 @@ const App = () => (
         <Route path="/survival" exact component={SurvivalView} />
         <Route path="/survival-details" exact component={SurvivalDetailsView} />
         <Route path="/quiz" exact component={QuizView} />
+        <Route path="/alert" exact component={Alert} />
+        <Route path="/map" exact component={MapView} />
       </Content>
     </Router>
   </>
