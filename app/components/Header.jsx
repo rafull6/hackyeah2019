@@ -60,7 +60,7 @@ const Header = ({ history }) => {
     for (let key in filters) {
       console.log(filters[key]);
 
-      if (filters[key] === res[0]) {
+      if (res[0].includes(filters[key])) {
         history.push(`/rescue-steps/${key}`);
       }
     }
