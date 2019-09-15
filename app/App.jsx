@@ -30,7 +30,7 @@
 //   return <div id="app">{aaa}</div>
 // };
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 
 import Header from "./components/Header";
@@ -84,7 +84,6 @@ const App = () => (
         <Route path="/rescue" exact component={RescueView} />
         <Route path="/rescue-type" exact component={RescueTypeView} />
         <Route path="/rescue-person" exact component={RescuePersonView} />
-        <Route path="/map" exact component={MapView} />
         <Route path="/rescue-steps" exact component={RescueStepsView} />
       </Content>
     </Router>

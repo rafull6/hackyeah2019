@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: "index.js",
     publicPath: "/app/assets/",
-    path: path.resolve(__dirname, "www/js")
+    path: path.resolve(__dirname, "www/assets")
   },
   devServer: {
     contentBase: path.join(__dirname, "www"),
@@ -38,7 +38,7 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "img",
-              publicPath: "/assets/img/"
+              publicPath: "assets/img/"
             }
           }
         ]
