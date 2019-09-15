@@ -93,12 +93,12 @@ const HomeView = ({ history }) => {
         <HomeButton onClick={() => history.push("/quiz")}>Quiz</HomeButton>
       </Section>
 
-      <Section>
+      {/* <Section>
         <h2>Lokalny alarm</h2>
         <HomeButton onClick={() => history.push("/alert")}>
           Aktywuj lokalny alarm
         </HomeButton>
-      </Section>
+      </Section> */}
 
       <Section type="footer">
         <HomeButton type="3" onClick={listen}>
