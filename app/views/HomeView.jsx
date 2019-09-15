@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import HomeButton from "../components/HomeButton";
+import HomeButtonLink from "../components/HomeButtonLink";
 import microphone from "../assets/microphone.svg";
 import location from "../assets/location.svg";
 import { initRecognition } from "../utils/VoiceRecognition";
@@ -60,6 +61,9 @@ const HomeView = ({ history }) => {
   return (
     <>
       <Section>
+        <HomeButtonLink href="tel:+48667900601" >
+          Zadzwoń 112
+        </HomeButtonLink>
         <HomeButton type="1" onClick={() => history.push("/rescue")}>
           Ratuj Życie
         </HomeButton>
@@ -87,6 +91,13 @@ const HomeView = ({ history }) => {
           Kit
         </HomeButton>
         <HomeButton onClick={() => history.push("/quiz")}>Quiz</HomeButton>
+      </Section>
+
+      <Section>
+        <h2>Lokalny alarm</h2>
+        <HomeButton onClick={() => history.push("/survival")}>
+          Aktywuj lokalny alarm
+        </HomeButton>
       </Section>
 
       <Section type="footer">

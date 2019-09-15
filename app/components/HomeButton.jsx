@@ -13,7 +13,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 86px;
+  height: 76px;
   box-shadow: 0px 3px 20px #0000000a;
   cursor: pointer;
   outline: 0;
@@ -76,6 +76,33 @@ const Button = styled.button`
       img {
         width: 20px;
       }
+    `}
+
+    ${props =>
+    props.type == 5 &&
+    css`
+      height: 100px;
+      background: #F3BBB3;
+      color: var(--primaryColor);
+      font-size: 12px;
+      line-height: 16px;
+      border-radius: 0 5px 0 0;
+
+      span {
+        margin-left: 10px;
+      }
+
+      img {
+        width: 20px;
+      }
+    `}
+
+    ${props =>
+    props.type == 6 &&
+    css`
+      grid-column: span 2;
+      font-weight: 400;
+      line-height: 27px;
     `}
 `;
 
