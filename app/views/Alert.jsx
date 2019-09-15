@@ -1,5 +1,17 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { css, keyframes } from "styled-components";
+
+const myAnimantion = keyframes`
+0% {
+  background: black;
+}
+50% {
+  background: white;
+}
+100% {
+  background: black;
+}
+`;
 
 const AlertWrapper = styled.div`
   display: block;
@@ -10,20 +22,11 @@ const AlertWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background: red;
-`;
+  background: black;
 
-const Pulse = styled.div`
-  margin: 100px;
-  display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #cca92c;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
-  animation: pulse 2s infinite;
-`
+  animation: ${myAnimantion} 0.5s linear infinite;
+
+`;
 
 const Alert = () => {
   return (
