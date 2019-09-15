@@ -56,12 +56,12 @@ const Step = styled.div`
   }
 
   p {
-    color: #707070;
+    color: var(--primaryColor);
     font-size: 14px;
-    line-height: 18px;
     margin: 0;
     flex: 1 1 auto;
     overflow: auto;
+    font-size:2rem;
   }
 `;
 
@@ -212,7 +212,7 @@ const pronounce = element => {
 
 const RescueStepsView = ({ match }) => {
   const [step, setStep] = useState(0);
-  const key = match.params.key ? match.params.key : "case2";
+  const key = match.params.key ? match.params.key : "case1";
 
   useEffect(() => {
     readText();
@@ -265,7 +265,7 @@ const RescueStepsView = ({ match }) => {
           {mocks[key][step] && (
             <img src={mocks[key][step].image} onClick={nextStep} />
           )}
-          {mocks[key][step] && <p>{mocks[key][step].content}</p>}
+          {mocks[key][step] && <p className="rescue-text">{mocks[key][step].content}</p>}
         </Step>
       </Section>
       <Footer>
