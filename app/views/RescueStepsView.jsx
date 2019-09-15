@@ -197,7 +197,7 @@ const RescueStepsView = ({ match }) => {
   }, []);
 
   function nextStep() {
-    if (step === mocks.length - 1) return;
+    if (step === mocks[key].length - 1) return;
     setStep(step + 1);
     pronounce(mocks[key][step + 1].content);
   }
