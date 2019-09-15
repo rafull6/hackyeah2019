@@ -36,6 +36,47 @@ const Button = styled.button`
       font-size: 18px;
       line-height: 23px;
     `}
+
+  ${props =>
+    props.type == 3 &&
+    css`
+      background: var(--primaryColor);
+      color: #fff;
+      font-weight: 400;
+      line-height: 27px;
+      font-size: 12px;
+      line-height: 23px;
+      height: 63px;
+      line-height: 16px;
+      border-radius: 5px 0 0 0;
+
+      span {
+        margin-left: 10px;
+      }
+
+      img {
+        width: 20px;
+      }
+    `}
+
+    ${props =>
+    props.type == 4 &&
+    css`
+      height: 63px;
+      background: #F3BBB3;
+      color: var(--primaryColor);
+      font-size: 12px;
+      line-height: 16px;
+      border-radius: 0 5px 0 0;
+
+      span {
+        margin-left: 10px;
+      }
+
+      img {
+        width: 20px;
+      }
+    `}
 `;
 
 export default Button;
