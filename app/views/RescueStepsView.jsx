@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
 const Section = styled.div`
@@ -122,21 +122,29 @@ const mocks = [
   }
 ];
 
-const pronounce = () => {
+const pronounce = element => {
   TTS
     .speak({
       text: element,
       locale: 'pl-PL',
-      rate: 0.75
+      rate: 1
     });
 }
 
 const RescueStepsView = () => {
   const [step, setStep] = useState(0);
 
+  useEffect(() => {
+    readText();
+  }, [])
+
   function nextStep() {
     if (step === mocks.length - 1) return;
     setStep(step + 1);
+    pronounce(mocks[step + 1].content);
+  }
+
+  const readText = () => {
     pronounce(mocks[step].content);
   }
 
@@ -155,7 +163,7 @@ const RescueStepsView = () => {
             <Dot active={id === step} />
           ))}
         </Stepper>
-        <RepeatButton>Powtórz komendę</RepeatButton>
+        <RepeatButton onClick={readText}>Powtórz komendę</RepeatButton>
         <NextButton onClick={nextStep}>Przejdź dalej</NextButton>
       </Footer>
     </>
