@@ -30,7 +30,7 @@ const RescuePersonView = () => (
   <>
     <Section>
       <h2>Resustytacja</h2>
-      <List items={mocks} center />
+      <List items={mocks} nextView={"/rescue-steps"} center />
     </Section>
   </>
 );

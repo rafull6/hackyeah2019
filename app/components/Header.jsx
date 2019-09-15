@@ -7,6 +7,7 @@ import LeftArrowImg from "../assets/left-arrow.svg";
 
 const Wrapper = styled.div`
   background: #f5f5f5;
+  flex: 0 0 auto;
   height: 53px;
   padding: 0 24px;
   display: flex;
