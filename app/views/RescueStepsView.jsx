@@ -63,11 +63,10 @@ const Dot = styled.li`
     }
 
     ${props =>
-      props.active &&
-      css`
+    props.active &&
+    css`
         background: #b4b4b4;
       `}
-  }
 `;
 
 const RepeatButton = styled.button`
@@ -123,12 +122,22 @@ const mocks = [
   }
 ];
 
+const pronounce = () => {
+  TTS
+    .speak({
+      text: element,
+      locale: 'pl-PL',
+      rate: 0.75
+    });
+}
+
 const RescueStepsView = () => {
   const [step, setStep] = useState(0);
 
   function nextStep() {
     if (step === mocks.length - 1) return;
     setStep(step + 1);
+    pronounce(mocks[step].content);
   }
 
   return (

@@ -1,19 +1,19 @@
 {
-  "_from": "cordova-plugin-speechrecognition",
+  "_from": "cordova-plugin-speechrecognition@^1.2.0",
   "_id": "cordova-plugin-speechrecognition@1.2.0",
   "_inBundle": false,
   "_integrity": "sha1-AF8QyJb9kpPYWH/lUiorZC3qlwo=",
   "_location": "/cordova-plugin-speechrecognition",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-speechrecognition",
+    "raw": "cordova-plugin-speechrecognition@^1.2.0",
     "name": "cordova-plugin-speechrecognition",
     "escapedName": "cordova-plugin-speechrecognition",
-    "rawSpec": "",
+    "rawSpec": "^1.2.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^1.2.0"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-speechrecognition/-/cordova-plugin-speechrecognition-1.2.0.tgz",
   "_shasum": "005f10c896fd9293d8587fe5522a2b642dea970a",
-  "_spec": "cordova-plugin-speechrecognition",
+  "_spec": "cordova-plugin-speechrecognition@^1.2.0",
   "_where": "/Users/vladyslavudovychenko/Projects/hackyeach/MyApp",
   "author": {
     "name": "Peter Bakondy"
